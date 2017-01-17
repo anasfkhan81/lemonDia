@@ -1,0 +1,471 @@
+@prefix : <http://www.languagelibrary.eu/lemonDia/dia-time.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@base <http://www.languagelibrary.eu/lemonDia/dia-time.owl> .
+
+<http://www.languagelibrary.eu/lemonDia/dia-time.owl> rdf:type owl:Ontology ;
+                                                                      
+                                                                      rdfs:label "dia-time" ;
+                                                                      
+                                                                      rdfs:comment "An extension of the owl time ontology to handle historical time periods."@en ;
+                                                                      
+                                                                      owl:imports <http://www.w3.org/2006/time> .
+
+
+#################################################################
+#
+#    Annotation properties
+#
+#################################################################
+
+
+###  http://www.w3.org/2006/time#histunitType
+
+time:histunitType rdf:type owl:AnnotationProperty .
+
+
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#bceorad
+
+:bceorad rdf:type owl:ObjectProperty ;
+         
+         rdfs:range :BCEorAD ;
+         
+         rdfs:domain :HistoricalDateDescription .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#hasHistoricalDateDescription
+
+:hasHistoricalDateDescription rdf:type owl:ObjectProperty ;
+                              
+                              rdfs:range :HistoricalDateDescription .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#hasHistoricalDurationDescription
+
+:hasHistoricalDurationDescription rdf:type owl:ObjectProperty ;
+                                  
+                                  rdfs:range :HistoricalDurationDescription ;
+                                  
+                                  rdfs:domain time:TemporalEntity .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#histunitType
+
+:histunitType rdf:type owl:ObjectProperty ;
+              
+              rdfs:range :HistoricalTemporalUnit .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#centuries
+
+:centuries rdf:type owl:DatatypeProperty ;
+           
+           rdfs:domain :HistoricalDurationDescription ;
+           
+           rdfs:range xsd:nonNegativeInteger .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#century
+
+:century rdf:type owl:DatatypeProperty ;
+         
+         rdfs:domain :HistoricalDateDescription ;
+         
+         rdfs:range xsd:nonNegativeInteger .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#millenia
+
+:millenia rdf:type owl:DatatypeProperty ;
+          
+          rdfs:domain :HistoricalDurationDescription ;
+          
+          rdfs:range xsd:nonNegativeInteger .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#millenium
+
+:millenium rdf:type owl:DatatypeProperty ;
+           
+           rdfs:domain :HistoricalDateDescription ;
+           
+           rdfs:range xsd:nonNegativeInteger .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#BCEorAD
+
+:BCEorAD rdf:type owl:Class ;
+         
+         owl:equivalentClass [ rdf:type owl:Class ;
+                               owl:oneOf ( :BCE
+                                           :AD
+                                         )
+                             ] ;
+         
+         rdfs:comment "A class used to determine whether a data belongs to BCE or AD."@en .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#HistoricalDateDescription
+
+:HistoricalDateDescription rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf time:DateTimeDescription ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :century ;
+                                             owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :millenium ;
+                                             owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :bceorad ;
+                                             owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                           ] ;
+                           
+                           rdfs:comment "A subclass of DateTimeDescription that is used to describe historical dates and includes information about whether a date is BCE or AD, which century it is in and which millenium."@en .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#HistoricalDurationDescription
+
+:HistoricalDurationDescription rdf:type owl:Class ;
+                               
+                               rdfs:subClassOf time:DurationDescription ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :millenia ;
+                                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :centuries ;
+                                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                               ] ;
+                               
+                               rdfs:comment "A subclass of DateTimeDescription which includes information about  centuries and millenia"@en .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#HistoricalTemporalUnit
+
+:HistoricalTemporalUnit rdf:type owl:Class ;
+                        
+                        owl:equivalentClass [ rdf:type owl:Class ;
+                                              owl:oneOf ( time:unitMonth
+                                                          time:unitMinute
+                                                          time:unitDay
+                                                          :unitMillenium
+                                                          time:unitHour
+                                                          time:unitYear
+                                                          time:unitSecond
+                                                          :unitCentury
+                                                          time:unitWeek
+                                                        )
+                                            ] .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#HistoricalYear
+
+:HistoricalYear rdf:type owl:Class ;
+                
+                owl:equivalentClass [ rdf:type owl:Class ;
+                                      owl:oneOf ( time:unitMonth
+                                                  time:unitMinute
+                                                  time:unitDay
+                                                  :unitMillenium
+                                                  time:unitHour
+                                                  time:unitYear
+                                                  time:unitSecond
+                                                  :unitCentury
+                                                  time:unitWeek
+                                                )
+                                    ] ;
+                
+                rdfs:subClassOf time:Year ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :bceorad ;
+                                  owl:cardinality "1"^^xsd:nonNegativeInteger
+                                ] .
+
+
+
+###  http://www.w3.org/2006/time#TemporalUnit
+
+time:TemporalUnit rdfs:subClassOf :HistoricalTemporalUnit .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#1350AD
+
+<http://www.languagelibrary.eu/lemonDia/dia-time.owl#1350AD> rdf:type :HistoricalDateDescription ,
+                                                                                      owl:NamedIndividual ;
+                                                                             
+                                                                             time:year 1350 ;
+                                                                             
+                                                                             :bceorad :AD .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#14AD
+
+<http://www.languagelibrary.eu/lemonDia/dia-time.owl#14AD> rdf:type :HistoricalDateDescription ,
+                                                                                    owl:NamedIndividual ;
+                                                                           
+                                                                           time:year 14 ;
+                                                                           
+                                                                           :bceorad :AD .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#1527AD
+
+<http://www.languagelibrary.eu/lemonDia/dia-time.owl#1527AD> rdf:type :HistoricalDateDescription ,
+                                                                                      owl:NamedIndividual ;
+                                                                             
+                                                                             time:year 1527 ;
+                                                                             
+                                                                             :bceorad :AD .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#241BCE
+
+<http://www.languagelibrary.eu/lemonDia/dia-time.owl#241BCE> rdf:type :HistoricalDateDescription ,
+                                                                                      owl:NamedIndividual ;
+                                                                             
+                                                                             time:year 241 ;
+                                                                             
+                                                                             :bceorad :BCE ;
+                                                                             
+                                                                             time:histunitType :unitYear .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#476AD
+
+<http://www.languagelibrary.eu/lemonDia/dia-time.owl#476AD> rdf:type :HistoricalDateDescription ,
+                                                                                     owl:NamedIndividual ;
+                                                                            
+                                                                            time:year 476 ;
+                                                                            
+                                                                            :bceorad :AD .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#78BCE
+
+<http://www.languagelibrary.eu/lemonDia/dia-time.owl#78BCE> rdf:type :HistoricalDateDescription ,
+                                                                                     owl:NamedIndividual ;
+                                                                            
+                                                                            time:year 78 ;
+                                                                            
+                                                                            :bceorad :BCE ;
+                                                                            
+                                                                            time:histunitType :unitYear .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#AD
+
+:AD rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#Archaic
+
+:Archaic rdf:type owl:NamedIndividual ,
+                  time:DateTimeInterval ;
+         
+         time:intervalMeets :Classical ;
+         
+         time:hasEnd [ rdf:type time:Instant ;
+                       :hasHistoricalDateDescription <http://www.languagelibrary.eu/lemonDia/dia-time.owl#78BCE>
+                     ] ;
+         
+         time:hasBeginning [ rdf:type time:Instant ;
+                             :hasHistoricalDateDescription <http://www.languagelibrary.eu/lemonDia/dia-time.owl#241BCE>
+                           ] .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#BCE
+
+:BCE rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#Classical
+
+:Classical rdf:type owl:NamedIndividual ,
+                    time:DateTimeInterval ;
+           
+           time:intervalMeets :Imperial ;
+           
+           time:hasEnd [ rdf:type time:Instant ;
+                         :hasHistoricalDateDescription <http://www.languagelibrary.eu/lemonDia/dia-time.owl#14AD>
+                       ] ;
+           
+           time:hasBeginning [ rdf:type time:Instant ;
+                               :hasHistoricalDateDescription <http://www.languagelibrary.eu/lemonDia/dia-time.owl#78BCE>
+                             ] .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#Imperial
+
+:Imperial rdf:type owl:NamedIndividual ,
+                   time:DateTimeInterval ;
+          
+          time:intervalMeets :Medieval ;
+          
+          time:hasBeginning [ rdf:type time:Instant ;
+                              :hasHistoricalDateDescription <http://www.languagelibrary.eu/lemonDia/dia-time.owl#14AD>
+                            ] ;
+          
+          time:hasEnd [ rdf:type time:Instant ;
+                        :hasHistoricalDateDescription <http://www.languagelibrary.eu/lemonDia/dia-time.owl#476AD>
+                      ] .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#Medieval
+
+:Medieval rdf:type owl:NamedIndividual ,
+                   time:DateTimeInterval ;
+          
+          time:intervalMeets :Renaissance ;
+          
+          time:hasBeginning [ rdf:type time:Instant ;
+                              :hasHistoricalDateDescription <http://www.languagelibrary.eu/lemonDia/dia-time.owl#476AD>
+                            ] ;
+          
+          time:hasEnd [ rdf:type time:Instant ;
+                        :hasHistoricalDateDescription <http://www.languagelibrary.eu/lemonDia/dia-time.owl#1350AD>
+                      ] .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#Renaissance
+
+:Renaissance rdf:type owl:NamedIndividual ,
+                      time:DateTimeInterval ;
+             
+             time:hasBeginning [ rdf:type time:Instant ;
+                                 :hasHistoricalDateDescription <http://www.languagelibrary.eu/lemonDia/dia-time.owl#1350AD>
+                               ] ;
+             
+             time:hasEnd [ rdf:type time:Instant ;
+                           :hasHistoricalDateDescription <http://www.languagelibrary.eu/lemonDia/dia-time.owl#1527AD>
+                         ] .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#unitCentury
+
+:unitCentury rdf:type :HistoricalTemporalUnit ,
+                      owl:NamedIndividual .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/dia-time.owl#unitMillenium
+
+:unitMillenium rdf:type :HistoricalTemporalUnit ,
+                        owl:NamedIndividual .
+
+
+
+###  http://www.w3.org/2006/time#unitDay
+
+time:unitDay rdf:type :HistoricalTemporalUnit .
+
+
+
+###  http://www.w3.org/2006/time#unitHour
+
+time:unitHour rdf:type :HistoricalTemporalUnit .
+
+
+
+###  http://www.w3.org/2006/time#unitMinute
+
+time:unitMinute rdf:type :HistoricalTemporalUnit .
+
+
+
+###  http://www.w3.org/2006/time#unitMonth
+
+time:unitMonth rdf:type :HistoricalTemporalUnit .
+
+
+
+###  http://www.w3.org/2006/time#unitSecond
+
+time:unitSecond rdf:type :HistoricalTemporalUnit .
+
+
+
+###  http://www.w3.org/2006/time#unitWeek
+
+time:unitWeek rdf:type :HistoricalTemporalUnit .
+
+
+
+###  http://www.w3.org/2006/time#unitYear
+
+time:unitYear rdf:type :HistoricalTemporalUnit .
+
+
+
+
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+

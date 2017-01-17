@@ -1,0 +1,249 @@
+@prefix : <http://www.languagelibrary.eu/lemonLSJ/praclex.rdf#> .
+@prefix lemon: <http://lemon-model.net/lemon#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lsj-lemon: <http://www.languagelibrary.eu/lemonLSJ/lemonLSJ.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.languagelibrary.eu/lemonLSJ/praclex.rdf> a lemon:Lexicon ;
+	owl:imports <http://www.languagelibrary.eu/lemonLSJ/lemonLSJ.ttl>;
+    lemon:language "grc" .
+	
+:lsjEntry_n9638 a lemon:LexicalEntry ;
+	lemon:writtenRep "εἶδον"@grc ;
+    lsj-lemon:betacodeTransliteration "ei)=don"@grc ;
+    lemon:sense :lsjsense_n9638_0,
+        :lsjsense_n9638_1,
+        :lsjsense_n9638_2,
+        :lsjsense_n9638_3 ;
+    lsj-lemon:lsjID "n9638" .
+
+:lsjsense_n9638_0 a lemon:LexicalSense ;
+	lsj-lemon:strippedForm """to see, perceive, behold, Hom., etc.; after a Noun, θαῦμα ἰδέσθαι a marvel to behold, Il.; οἰκτρὸσ ἰδεῖν Aesch.
+"""@en  ;
+    lemon:isSenseOf :lsjEntry_n9638 ;
+    lsj-lemon:lsjlevel "3" ;
+    lsj-lemon:lsjn "1" ;
+    lsj-lemon:senseSibling :lsjsense_n9638_1,
+        :lsjsense_n9638_2,
+        :lsjsense_n9638_3 ;
+    lsj-lemon:usage "Aesch.",
+        "Hom.",
+        "Il." ;
+    lexinfo:translation "to behold"@en,
+        "to see, perceive, behold"@en .
+:lsjsense_n9638_1 a lemon:LexicalSense ;
+    lsj-lemon:strippedForm """to look at, εἰσ ὦπα ἰδέσθαι to look him in the face, Il., etc.
+"""@en ;
+    lemon:isSenseOf :lsjEntry_n9638 ;
+    lsj-lemon:lsjlevel "3" ;
+    lsj-lemon:lsjn "2" ;
+    lsj-lemon:senseSibling :lsjsense_n9638_0,
+        :lsjsense_n9638_2,
+        :lsjsense_n9638_3 ;
+    lsj-lemon:usage "Il." ;
+    lexinfo:translation "to look"@en,
+        "to look at"@en .
+
+:lsjsense_n9638_2 a lemon:LexicalSense ;
+	lsj-lemon:strippedForm """to look so and so, ἀχρεῖον ἰδών looking helpless, id=Il.
+"""@en  ;
+    lemon:isSenseOf :lsjEntry_n9638 ;
+    lsj-lemon:lsjlevel "3" ;
+    lsj-lemon:lsjn "3" ;
+    lsj-lemon:senseSibling :lsjsense_n9638_0,
+        :lsjsense_n9638_1,
+        :lsjsense_n9638_3 ;
+    lsj-lemon:usage "id=Il." ;
+    lexinfo:translation "looking"@en,
+        "to look"@en .
+
+:lsjsense_n9638_3 a lemon:LexicalSense ;
+    lsj-lemon:strippedForm """to see mentally, ἰδέσθαι ἐν φρεσίν "to see in his mind's eye, " Hom.
+"""@en  ;
+    lemon:isSenseOf :lsjEntry_n9638 ;
+    lsj-lemon:lsjlevel "3" ;
+    lsj-lemon:lsjn "4" ;
+    lsj-lemon:senseSibling :lsjsense_n9638_0,
+        :lsjsense_n9638_1,
+        :lsjsense_n9638_2 ;
+    lsj-lemon:usage "Hom." ;
+    lexinfo:translation "\"to see"@en,
+        "to see mentally"@en .
+		
+:lsjEntry_n6040 a lemon:LexicalEntry ;
+			lemon:writtenRep "βαίνω"@grc ;
+            lsj-lemon:betacodeTransliteration "bai/nw"@grc ;
+    lemon:sense :lsjsense_n6040_0,
+        :lsjsense_n6040_1,
+        :lsjsense_n6040_2,
+        :lsjsense_n6040_3,
+        :lsjsense_n6040_4,
+        :lsjsense_n6040_5,
+        :lsjsense_n6040_6,
+        :lsjsense_n6040_7,
+        :lsjsense_n6040_8,
+        :lsjsense_n6040_9 ;
+    lsj-lemon:lsjID "n6040" .
+	
+:lsjsense_n6040_0 a lemon:LexicalSense ;
+    lsj-lemon:strippedForm """in most forms,
+"""@en  ;
+    lemon:isSenseOf :lsjEntry_n6040 ;
+    lsj-lemon:lsjlevel "1" ;
+    lsj-lemon:lsjn "A" ;
+    lsj-lemon:senseSibling :lsjsense_n6040_9 .
+	
+	
+:lsjsense_n6040_1 a lemon:LexicalSense ;
+    lsj-lemon:strippedForm """intr. to walk, step, properly of motion on foot, ποσσὶ or ποσὶ βαίνειν Hom., etc.; c. inf. in Hom., βῆ ἰέναι, βῆ ἰέμεν set out to go, went his way, Il.; βῆ θέειν started to run, id=Il.; βῆ δ' ἐλάαν, id=Il., etc.:&mdash;c. acc. loci, Soph.; and with all Preps. implying motion, as, ἐπὶ νηὸσ ἔβαινεν was going on board ship, Od.; ἐφ' ἵππων βάντεσ having mounted the chariot, id=Od.; βαίνειν δι' αἵματοσ to wade through blood, Eur., etc.
+"""@en  ;
+    lemon:isSenseOf :lsjEntry_n6040 ;
+    lsj-lemon:lsjlevel "2" ;
+    lsj-lemon:lsjn "I" ;
+    lsj-lemon:senseSibling :lsjsense_n6040_6 ;
+    lsj-lemon:usage "Eur.",
+        "Hom.",
+        "Il.",
+        "Od.",
+        "Soph.",
+        "id=Il.",
+        "id=Od." ;
+    lexinfo:translation "having mounted"@en,
+        "on foot"@en,
+        "set out"@en,
+        "started"@en,
+        "to wade"@en,
+        "to walk, step"@en,
+        "was going on"@en,
+        "went"@en .
+		
+:lsjsense_n6040_2 a lemon:LexicalSense ;
+    lsj-lemon:strippedForm """in perf. to stand or be in a place, χῶροσ ἐν ὧι βεβήκαμεν Soph.; often almost= ei)mi/ (sum), εὖ βεβηκώσ on a good footing, well established, prosperous, Hdt., etc.; so, οἱ ἐν τέλει βεβῶτεσ they who are in office, id=Hdt., Soph.; cf. ξυρόν.
+"""@en ;
+    lemon:isSenseOf :lsjEntry_n6040 ;
+    lsj-lemon:lsjlevel "3" ;
+    lsj-lemon:lsjn "2" ;
+    lsj-lemon:senseSibling :lsjsense_n6040_3,
+        :lsjsense_n6040_4,
+        :lsjsense_n6040_5 ;
+    lsj-lemon:usage "Hdt.",
+        "Soph.",
+        "id=Hdt." ;
+    lexinfo:translation "(sum)"@en,
+        "are"@en,
+        "be"@en,
+        "established, prosperous"@en,
+        "footing"@en,
+        "on a"@en,
+        "to stand"@en .
+
+:lsjsense_n6040_3 a lemon:LexicalSense ;
+    lsj-lemon:strippedForm """to go, go away, depart, Il., Soph.; βέβηκα euphem. for τέθνηκα, Aesch., Soph.:&mdash;of things, ἐννέα ἐνιαυτοὶ βεβάασι nine years have come and gone, Il.
+"""@en  ;
+    lemon:isSenseOf :lsjEntry_n6040 ;
+    lsj-lemon:lsjlevel "3" ;
+    lsj-lemon:lsjn "3" ;
+    lsj-lemon:senseSibling :lsjsense_n6040_2,
+        :lsjsense_n6040_4,
+        :lsjsense_n6040_5 ;
+    lsj-lemon:usage "Aesch.",
+        "Il.",
+        "Soph." ;
+    lexinfo:translation "have come and gone"@en,
+        "to go, go away, depart"@en .
+
+:lsjsense_n6040_4 a lemon:LexicalSense ;
+    lsj-lemon:strippedForm """to come, τίπτε βέβηκασ;  id=Il.: to arrive, Soph.
+"""@en  ;
+    lemon:isSenseOf :lsjEntry_n6040 ;
+    lsj-lemon:lsjlevel "3" ;
+    lsj-lemon:lsjn "4" ;
+    lsj-lemon:senseSibling :lsjsense_n6040_2,
+        :lsjsense_n6040_3,
+        :lsjsense_n6040_5 ;
+    lsj-lemon:usage "Soph.",
+        "id=Il." ;
+    lexinfo:translation "to arrive"@en,
+        "to come"@en .
+
+:lsjsense_n6040_5 a lemon:LexicalSense ;
+    lsj-lemon:strippedForm """to go on, advance, ἐσ τόδε τόλμης, ἐσ τοσοῦτον ἐλπίδων id=Soph.
+"""@en  ;
+    lemon:isSenseOf :lsjEntry_n6040 ;
+    lsj-lemon:lsjlevel "3" ;
+    lsj-lemon:lsjn "5" ;
+    lsj-lemon:senseSibling :lsjsense_n6040_2,
+        :lsjsense_n6040_3,
+        :lsjsense_n6040_4 ;
+    lsj-lemon:usage "id=Soph." ;
+    lexinfo:translation "to go on, advance"@en .
+
+:lsjsense_n6040_6 a lemon:LexicalSense ;
+    lsj-lemon:strippedForm """c. acc. to mount, Hom. only in aor1 mid., βήσασθαι δίφρον:&mdash; Pass., ἵπποι βαινόμεναι brood mares, Hdt.
+"""@en  ;
+    lemon:isSenseOf :lsjEntry_n6040 ;
+    lsj-lemon:lsjlevel "2" ;
+    lsj-lemon:lsjn "II" ;
+    lsj-lemon:senseChild :lsjsense_n6040_7,
+        :lsjsense_n6040_8 ;
+    lsj-lemon:senseSibling :lsjsense_n6040_1 ;
+    lsj-lemon:usage "Hdt.",
+        "Hom." ;
+    lexinfo:translation "brood"@en,
+        "to mount"@en .
+
+	
+:lsjsense_n6040_7 a lemon:LexicalSense ;
+    lsj-lemon:strippedForm """χρέοσ ἔβα με debts came on me, Ar.
+"""@en  ;
+    lemon:isSenseOf :lsjEntry_n6040 ;
+    lsj-lemon:lsjlevel "3" ;
+    lsj-lemon:lsjn "2" ;
+    lsj-lemon:senseSibling :lsjsense_n6040_8 ;
+    lsj-lemon:usage "Ar." ;
+    lexinfo:translation "came on"@en .
+
+:lsjsense_n6040_8 a lemon:LexicalSense ;
+    lsj-lemon:strippedForm """in Poets, with acc. of the instrument of motion, which is simply pleonastic, βαίνειν πόδα to advance the foot, step on, Eur., etc.
+"""@en  ;
+    lemon:isSenseOf :lsjEntry_n6040 ;
+    lsj-lemon:lsjlevel "3" ;
+    lsj-lemon:lsjn "3" ;
+    lsj-lemon:senseSibling :lsjsense_n6040_7 ;
+    lsj-lemon:usage "Eur." ;
+    lexinfo:translation "step on"@en,
+        "to advance"@en .
+		
+:lsjsense_n6040_9 a lemon:LexicalSense ;
+    lsj-lemon:strippedForm """Causal, in fut. βήσω, aor1 ἔβησα:&mdash; to make to go, βῆσεν ἀφ' ἵππον, ἐξ ἵππων βῆσε brought them down from the chariot, Il. The pres. in this sense is βιβάζω.
+"""@en  ;
+    lemon:isSenseOf :lsjEntry_n6040 ;
+    lsj-lemon:lsjlevel "1" ;
+    lsj-lemon:lsjn "B" ;
+    lsj-lemon:senseSibling :lsjsense_n6040_0 ;
+    lsj-lemon:usage "Il." ;
+    lexinfo:translation "brought"@en,
+        "down"@en,
+        "to make to go"@en .
+
+:lsjEntry_n6775 a lemon:LexicalEntry; 
+lemon:writtenRep "γέγωνα"@grc ;
+            lsj-lemon:betacodeTransliteration "ge/gwna"@grc ;
+    lemon:sense :lsjsense_n6775_0 ;
+    lsj-lemon:lsjID "n6775" .
+
+:lsjsense_n6775_0 a lemon:LexicalSense ;
+   lsj-lemon:strippedForm """epic perf. with pres. signf., pluperf. used as impf., to call out so as to be heard, ὅσσον τε γέγωνε βοήσασ as far as a man can make himself heard by shouting, Od.:&mdash;c. dat. pers. to cry out to, id=Od.
+"""@en  ;
+    lemon:isSenseOf :lsjEntry_n6775 ;
+    lsj-lemon:lsjlevel "0" ;
+    lsj-lemon:lsjn "0" ;
+    lsj-lemon:usage "Od.",
+        "id=" ;
+    lexinfo:translation "can make himself heard"@en,
+        "to call out so as to be heard"@en,
+        "to cry out to"@en .	

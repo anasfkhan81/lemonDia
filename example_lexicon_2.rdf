@@ -1,0 +1,504 @@
+@prefix : <http://www.languagelibrary.eu/lemonDia/example_lexicon_2.rdf#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl2: <http://www.w3.org/2006/12/owl2#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.isi.edu/~pan/damltime/time-entry.owl#> .
+@prefix dbp: < http://dbpedia.org/resource/> .
+@prefix lemon: <http://lemon-model.net/lemon.ttl#> .
+@prefix timed: <http://www.semanticweb.org/fahadkhan/ontologies/2014/4/dia-time.owl#> .
+@prefix lemond: <http://www.semanticweb.org/fahadkhan/ontologies/2014/4/lemonDia#> .
+@prefix ontology: <http://www.example.org/lexicon#> .
+@base <http://www.languagelibrary.eu/lemonDia/example_lexicon_2.rdf#> .
+
+<http://www.languagelibrary.eu/lemonDia/example_lexicon_2.rdf> rdf:type owl:Ontology ;
+                                                 
+                                                 rdfs:comment "A practice lexicon containing latin terms." ;
+                                                 
+                                                 owl:imports <http://www.languagelibrary.eu/lemonDia/lemonDia.owl> .
+
+
+#################################################################
+#
+#    Annotation properties
+#
+#################################################################
+
+
+###  http://lemon-model.net/lemon.ttl#context
+
+lemon:context rdf:type owl:AnnotationProperty .
+
+
+
+###  http://lemon-model.net/lemon.ttl#entry
+
+lemon:entry rdf:type owl:AnnotationProperty .
+
+
+
+###  http://lemon-model.net/lemon.ttl#language
+
+lemon:language rdf:type owl:AnnotationProperty .
+
+
+
+###  http://lemon-model.net/lemon.ttl#reference
+
+lemon:reference rdf:type owl:AnnotationProperty .
+
+
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://www.semanticweb.org/fahadkhan/ontologies/2014/4/lemonDia#antonym
+
+lemond:antonym rdf:type owl:ObjectProperty ,
+                        owl:SymmetricProperty .
+
+
+
+###  http://www.semanticweb.org/fahadkhan/ontologies/2014/4/lemonDia#hyponym
+
+lemond:hyponym rdf:type owl:AsymmetricProperty .
+
+
+
+###  http://www.semanticweb.org/fahadkhan/ontologies/2014/4/lemonDia#synonym
+
+lemond:synonym rdf:type owl:ObjectProperty ,
+                        owl:SymmetricProperty ,
+                        owl:TransitiveProperty .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://lemon-model.net/lemon.ttl#Lexicon
+
+lemon:Lexicon rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/~pan/damltime/time-entry.owl#DateTimeInterval
+
+time:DateTimeInterval rdf:type owl:Class .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://www.semanticweb.org/fahadkhan/ontologies/2014/4/dia-time.owl#Archaic
+
+timed:Archaic rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/fahadkhan/ontologies/2014/4/dia-time.owl#Classical
+
+timed:Classical rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/fahadkhan/ontologies/2014/4/dia-time.owl#Imperial
+
+timed:Imperial rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/fahadkhan/ontologies/2014/4/dia-time.owl#Medieval
+
+timed:Medieval rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/fahadkhan/ontologies/2014/4/dia-time.owl#Renaissance
+
+timed:Renaissance rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#desidia
+
+:desidia rdf:type <http://www.lemon-model.net/lemon#Word> ,
+                  owl:NamedIndividual ;
+         
+         lemond:pSense :desisense .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#desidiosissimum_otium
+
+:desidiosissimum_otium rdf:type <http://www.lemon-model.net/lemon#Phrase> ,
+                                owl:NamedIndividual ;
+                       
+                       lemond:pSense :dosense .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#desisense
+
+:desisense rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#dosense
+
+:dosense rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#dso1
+
+:dso1 rdf:type lemond:Diachronic_Shift_Object ,
+               owl:NamedIndividual ;
+      
+      lemond:initialpSense :otiumsense1 .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#exampleLexicon
+
+:exampleLexicon rdf:type lemon:Lexicon ,
+                         owl:NamedIndividual ;
+                
+                lemon:language "la" ;
+                
+                <http://www.lemon-model.net/lemon#entry> :desidia ,
+                                                         :desidiosissimum_otium ,
+                                                         :ignavia ,
+                                                         :inertia ,
+                                                         :inhonestium_otium ;
+                
+                lemon:entry :otium ;
+                
+                <http://www.lemon-model.net/lemon#entry> :otium ,
+                                                         :pax ,
+                                                         :peace ,
+                                                         :quies ,
+                                                         :requies ,
+                                                         :tranquilitas .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#ignavia
+
+:ignavia rdf:type <http://www.lemon-model.net/lemon#Word> ,
+                  owl:NamedIndividual ;
+         
+         lemond:pSense :ignsense .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#ignsense
+
+:ignsense rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#inertia
+
+:inertia rdf:type <http://www.lemon-model.net/lemon#Word> ,
+                  owl:NamedIndividual ;
+         
+         lemond:pSense :inertsense .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#inertsense
+
+:inertsense rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#inhonestium_otium
+
+:inhonestium_otium rdf:type <http://www.lemon-model.net/lemon#LexicalEntry> ,
+                            owl:NamedIndividual ;
+                   
+                   lemond:pSense :iosense .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#iosense
+
+:iosense rdf:type owl:NamedIndividual ;
+         
+         lemond:synonym :otiumsense3 .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#otium
+
+:otium rdf:type <http://www.lemon-model.net/lemon#Word> ,
+                owl:NamedIndividual ;
+       
+       lemond:diachronicShiftObject :dso1 ;
+       
+       lemond:pSense :otiumsense1 ,
+                     :otiumsense2 ,
+                     :otiumsense3 ,
+                     :otiumsense4 ,
+                     :otiumsense5 .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#otiumsense1
+
+:otiumsense1 rdf:type lemond:Lexical_pSense ,
+                      owl:NamedIndividual ;
+             
+             rdfs:comment "To do nothing; wait for a battle." ;
+             
+             lemon:reference dbp:otium ;
+             
+             lemond:temporalExtent timed:Archaic ;
+             
+             lemond:perdurantPartOf :dso1 ;
+             
+             lemond:synonym :peacesense .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#otiumsense2
+
+:otiumsense2 rdf:type lemond:Lexical_pSense ,
+                      owl:NamedIndividual ;
+             
+             rdfs:comment "To have time to study" ;
+             
+             lemon:reference dbp:otium ;
+             
+             lemond:perdurantPartOf :dso1 ;
+             
+             lemond:synonym :otiumsense5 ;
+             
+             lemond:temporalExtent [ rdf:type time:DateTimeInterval ;
+                                     time:intContains timed:Classical ,
+                                                      timed:Imperial
+                                   ] ;
+             
+             lemon:context [ ] .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#otiumsense3
+
+:otiumsense3 rdf:type lemond:Lexical_pSense ,
+                      owl:NamedIndividual ;
+             
+             rdfs:comment "To have free time for vices" ;
+             
+             lemon:reference dbp:otium ;
+             
+             lemond:temporalExtent timed:Medieval ;
+             
+             lemond:perdurantPartOf :dso1 ;
+             
+             lemond:synonym :iosense ;
+             
+             lemon:context [ ] .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#otiumsense4
+
+:otiumsense4 rdf:type lemond:Lexical_pSense ,
+                      owl:NamedIndividual ;
+             
+             rdfs:comment "To have free time to pray" ;
+             
+             lemon:reference dbp:otium ;
+             
+             lemond:temporalExtent timed:Medieval ;
+             
+             lemond:perdurantPartOf :dso1 ;
+             
+             lemon:context [ ] .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#otiumsense5
+
+:otiumsense5 rdf:type lemond:Lexical_pSense ,
+                      owl:NamedIndividual ;
+             
+             rdfs:comment "To have time to study" ;
+             
+             lemon:reference dbp:otium ;
+             
+             lemond:temporalExtent timed:Renaissance ;
+             
+             lemond:perdurantPartOf :dso1 ;
+             
+             lemon:context [ ] .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#pax
+
+:pax rdf:type <http://www.lemon-model.net/lemon#Word> ,
+              owl:NamedIndividual ;
+     
+     lemond:pSense :paxsense .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#paxsense
+
+:paxsense rdf:type owl:NamedIndividual ;
+          
+          lemond:synonym :paxsense .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#peace
+
+:peace rdf:type <http://www.lemon-model.net/lemon#Word> ,
+                owl:NamedIndividual ;
+       
+       lemond:pSense :peacesense .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#peacesense
+
+:peacesense rdf:type owl:NamedIndividual ;
+            
+            lemond:synonym :otiumsense2 .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#quies
+
+:quies rdf:type <http://www.lemon-model.net/lemon#Word> ,
+                owl:NamedIndividual ;
+       
+       lemond:pSense :quiessense .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#quiessense
+
+:quiessense rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#requies
+
+:requies rdf:type <http://www.lemon-model.net/lemon#Word> ,
+                  owl:NamedIndividual ;
+         
+         lemond:pSense :requiessense .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#requiessense
+
+:requiessense rdf:type owl:NamedIndividual ;
+              
+              lemond:synonym :otiumsense2 .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#tranquilitas
+
+:tranquilitas rdf:type <http://www.lemon-model.net/lemon#Word> ,
+                       owl:NamedIndividual ;
+              
+              lemond:pSense :traqsense .
+
+
+
+###  http://www.w3.org/2002/07/practiselatinlexicon#traqsense
+
+:traqsense rdf:type owl:NamedIndividual ;
+           
+           lemond:synonym :otiumsense2 .
+
+
+
+[ rdf:type lemond:Lexical_pSense
+] .
+[ rdf:type lemond:Lexical_pSense
+] .
+[ rdf:type lemond:Lexical_pSense
+] .
+[ rdf:type lemond:Lexical_pSense
+] .
+[ rdf:type lemond:Lexical_pSense
+] .
+
+
+#################################################################
+#
+#    General axioms
+#
+#################################################################
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( timed:Archaic
+                        timed:Classical
+                        timed:Imperial
+                        timed:Medieval
+                        timed:Renaissance
+                        :desidia
+                        :desidiosissimum_otium
+                        :desisense
+                        :dosense
+                        :dso1
+                        :exampleLexicon
+                        :ignavia
+                        :ignsense
+                        :inertia
+                        :inertsense
+                        :inhonestium_otium
+                        :iosense
+                        :otium
+                        :otiumsense1
+                        :otiumsense2
+                        :otiumsense3
+                        :otiumsense4
+                        :otiumsense5
+                        :pax
+                        :paxsense
+                        :peace
+                        :peacesense
+                        :quies
+                        :quiessense
+                        :requies
+                        :requiessense
+                        :tranquilitas
+                        :traqsense
+                      )
+] .
+
+
+
+
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+

@@ -1,0 +1,62 @@
+@prefix : <http://www.languagelibrary.eu/lemonDia/example_lexicon_1.rdf#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl2: <http://www.w3.org/2006/12/owl2#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix lemon: <http://lemon-model.net/lemon.ttl#> .
+@prefix lemond: <http://www.semanticweb.org/fahadkhan/ontologies/2014/4/lemonDia#> .
+@prefix ontology: <http://www.example.org/lexicon#> .
+@prefix time: <http://www.isi.edu/~pan/damltime/time-entry.owl#> .
+@base <http://www.languagelibrary.eu/lemonDia/example_lexicon_1.rdf#> .
+
+<http://www.languagelibrary.eu/lemonDia/example_lexicon_1.rdf> rdf:type owl:Ontology .
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://www.languagelibrary.eu/lemonDia/example_lexicon_1.rdf#exampleLexicon
+
+:exampleLexicon  a lemon:Lexicon ; 
+				 lemon:language "en" ; 
+				 lemon:entry :girl . 
+				 
+:girl a lemon:LexicalEntry ; 
+		  lemon:sense [ lemon:reference ontology:youth ] ;
+		  lemond:pSense :psense1; 
+		  lemond:pSense :psense2 ; 
+		  lemond:diachronicShiftObject :dso1 .
+:dso1 a lemond:Diachronic_Shift_Object.
+:psense1 a lemond:Lexical_pSense ;		  
+		  lemon:reference ontology:youth ;
+		  lemond:sensePartOf :dso1 ;
+		  lemond:temporalExtent :te1 .
+:psense2 a lemond:Lexical_pSense ;
+		   lemon:reference ontology:girl ;
+		   lemond:sensePartOf :dso1 ; 
+		   lemond:temporalExtent :te2 .
+:te1 a time:ProperInterval . 
+:te2 a time:ProperInterval . 
+:te1 time:intervalBefore :te2 .
+
+:te1Start a     :Instant ;
+      :inDateTime :te1StartDescription .		
+:te2Start a     :Instant ;
+      :inDateTime :te2StartDescription .		
+:te1StartDescription
+      a       :DateTimeDescription ;
+      :unitType :unitYear ;
+      :year "1568" .				 
+:te2StartDescription
+      a       :DateTimeDescription ;
+      :unitType :unitYear ;
+      :year "1800" .				 
+:te1 :hasBeginning :te1Start .
+:te2 :hasBeginning :te2Start .
+	  
