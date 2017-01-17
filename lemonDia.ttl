@@ -1,0 +1,412 @@
+@prefix : <http://www.languagelibrary.eu/lemonDia/lemonDia#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix lemon: <http://lemon-model.net/lemon#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix time-entry: <http://www.w3.org/2006/time-entry#> .
+@prefix time: <http://www.w3.org/2006/time#>.
+@base <http://www.languagelibrary.eu/lemonDia/lemonDia#> .
+
+<http://www.languagelibrary.eu/lemonDia/lemonDia> rdf:type owl:Ontology ;
+                                                      
+  rdfs:label "lemonDia"@en ;
+  
+  rdfs:comment "LemonDia is a model for representing diachronic lexical semantic information and is based on the Lemon model for ontologies. "@en ;
+  
+  owl:imports <http://lemon-model.net/lemon> ,
+			  <http://www.w3.org/2006/time-entry> .
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#explex
+
+:explex rdf:type owl:ObjectProperty ;
+        
+        rdfs:domain  :Expression ;
+        
+        rdfs:range lemon:LexicalEntry ;
+		
+		rdfs:comment "This property relates together an Expression with its Lexical Entries. "@en .
+		
+
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#isLemmaOf
+
+:isLemmaOf rdf:type owl:ObjectProperty ;
+		
+	rdfs:comment "This property relates together a lemma with its lexical entry. "@en .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#lemma
+
+:lemma rdf:type owl:ObjectProperty ;
+       
+       rdfs:domain lemon:LexicalEntry ;
+       
+       rdfs:range :Lemma ;
+       
+       owl:inverseOf :isLemmaOf ;
+		
+	rdfs:comment "This property relates together a lexical entry with its lemmas. "@en .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#lexexp
+
+:lexexp rdf:type owl:ObjectProperty ;
+        
+        rdfs:range lemon:LexicalEntry ;
+        
+        rdfs:domain :Expression ;
+        
+        owl:inverseOf :explex ;
+		
+		
+		rdfs:comment "This property relates together a Lexical Entry with its Expressions. "@en .
+
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#lexicalDomain
+
+:lexicalDomain rdf:type owl:ObjectProperty ;
+               
+               rdfs:range :LexicalDomain ;
+               
+               rdfs:domain [ rdf:type owl:Class ;
+                             owl:unionOf ( lemon:LexicalEntry
+                                           lemon:LexicalSense
+                                         )
+                           ] ;
+						   
+		rdfs:comment "This property relates together a Lexical Domain with a Lexical Entry or a Lexical Sense. "@en ;
+		
+		
+		rdfs:subPropertyOf lemon:property .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#lexicalDomainConcept
+
+:lexicalDomainConcept rdf:type owl:FunctionalProperty ,
+                               owl:ObjectProperty ;
+                      
+                      rdfs:domain :LexicalDomain ; 
+			rdfs:comment "This property relates together a Lexical Domain with a concept in an ontology. "@en ;
+			
+			
+			rdfs:subPropertyOf lemon:property .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#pSense
+
+:pSense rdf:type owl:ObjectProperty ;
+        
+        rdfs:range :LexicalpSense ;
+        
+        rdfs:domain lemon:LexicalEntry ;
+        
+        rdfs:subPropertyOf lemon:sense ; 
+		rdfs:comment 	"This property relates together a Lexical Entry with a p-Sense. "@en;
+		
+		
+		rdfs:subPropertyOf lemon:property .
+
+
+
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#semanticShift
+
+:semanticShift rdf:type owl:ObjectProperty ;
+               
+               rdfs:range :SemanticShift ;
+               
+               rdfs:domain lemon:LexicalEntry ;
+			   
+			
+			rdfs:subPropertyOf lemon:property .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#shiftSource
+
+:shiftSource rdf:type owl:ObjectProperty ;
+             
+             rdfs:domain :SemanticShift ;
+             
+             rdfs:range [ rdf:type owl:Class ;
+                          owl:unionOf ( lemon:LexicalSense
+                                        :LexicalDomain
+                                      )
+                        ] ;
+			
+    rdfs:subPropertyOf lemon:property .
+
+:sourceDomain rdf:type owl:ObjectProperty ;
+			rdfs:domain lemon:LexicalSense .
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#shiftTarget
+
+:shiftTarget rdf:type owl:ObjectProperty ;
+
+    rdfs:subPropertyOf lemon:property .
+
+
+:shiftType rdf:type owl:ObjectProperty ;            
+			rdfs:domain :SemanticShift ;
+			
+		rdfs:subPropertyOf lemon:property .
+
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#temporalExtent
+
+:temporalExtent rdf:type owl:FunctionalProperty ,
+                         owl:ObjectProperty ;
+                
+                rdfs:domain :LemonDiaElement ;
+                
+                rdfs:range time:ProperInterval ;
+				
+    rdfs:subPropertyOf lemon:property .
+
+
+			
+#polylemon			
+			
+:senseLevel rdf:type rdf:Property; 
+	rdfs:domain lemon:LexicalSense ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:subPropertyOf lemon:property .
+
+#polylemon
+
+:senseID rdf:type rdf:Property; 
+	rdfs:domain lemon:LexicalSense ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf lemon:property .		
+
+#polylemon
+	
+:senseChild rdf:type rdf:Property, owl:ObjectProperty;
+	rdfs:domain lemon:LexicalSense  ;
+    rdfs:range  lemon:LexicalSense ;
+    rdfs:subPropertyOf lemon:property ;
+	owl:inverseOf :isSenseChildOf ; 
+	rdf:subPropertyOf :senseDescendant.
+
+
+#polylemon
+	
+:isSenseChildOf rdf:type rdf:Property .	
+	
+#polylemon
+
+:senseDescendant rdf:type rdf:Property, owl:ObjectProperty, owl:TransitiveProperty ;
+	rdfs:range lemon:LexicalSense ;
+	rdfs:subPropertyOf lemon:property .
+	
+#polylemon
+
+:senseSibling rdf:type rdf:Property, owl:ObjectProperty,  owl:SymmetricProperty, owl:TransitiveProperty;
+	rdfs:domain lemon:LexicalSense ;
+    rdfs:range  lemon:LexicalSense ;
+    rdfs:subPropertyOf lemon:property .
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#Expression
+
+:Expression rdf:type owl:Class ;
+            
+            rdfs:subClassOf lemon:LexicalEntry ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :lexexp ;
+                              owl:someValuesFrom lemon:LexicalEntry
+                            ];
+			rdfs:comment "An Expression is a word-cluster that groups together lexical roots as well as morphological derivations and other variants. "@en .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#Lemma
+
+:Lemma rdf:type owl:Class ;
+       
+       rdfs:subClassOf lemon:LexicalEntry,
+					  [ rdf:type owl:Restriction ;
+						owl:onProperty :isLemmaOf ;
+						owl:cardinality "1"^^xsd:nonNegativeInteger
+					  ];
+	   rdfs:comment "A Lemma is a spelling or inflectional variant of the same lexical entry. "@en 	   .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#LemonDiaElement
+
+:LemonDiaElement rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf lemon:LemonElement ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :temporalExtent ;
+                                   owl:someValuesFrom time-entry:TemporalEntity
+                                 ] ;
+                 
+                 rdfs:comment "The class LemonDiaElement is a subclass of LemonElement which includes temporal information.   "@en .
+
+
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#LexicalDomain
+
+:LexicalDomain rdf:type owl:Class ;
+               
+               rdfs:subClassOf :LemonDiaElement, 
+				 [ rdf:type owl:Restriction ;
+                   owl:onProperty :lexicalDomainConcept ;
+                   owl:cardinality "1"^^xsd:nonNegativeInteger
+                                              ]; 
+			   
+			   rdfs:comment "The class LexicalDomain captures the general lexical domain to which a given Lexical Entry belongs.   "@en
+			   .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#LexicalpSense
+
+:LexicalpSense rdf:type owl:Class ;
+               
+               rdfs:subClassOf lemon:LexicalSense ,
+                               :LemonDiaElement ;
+               
+               owl:disjointWith lemon:Argument ;
+               
+               rdfs:comment "The members of the class Lexical_pSense are Lemon lexical senses but with an added temporal extent. They are intended to be viewed as perdurants."@en .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#NegatedShift
+
+:NegatedShift rdf:type owl:Class ;
+              rdfs:subClassOf :SemanticShift; 
+			  rdfs:comment "NegatedShifts comprise Semantic Shifts in which a privative affix is involved"@en.
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#PrivativeAffix
+
+:PrivativeAffix rdf:type owl:Class ;
+                
+              rdfs:subClassOf lexinfo:Affix, lemon:LexicalEntry ; 
+			  rdfs:comment "The class of privative affixes"@en.
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#PrivativeSuffix
+
+:PrivativeSuffix rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf lexinfo:Suffix, :PrivativeAffix ; 
+			  rdfs:comment "The class of privative suffixes"@en.
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#PrivativeSuffix
+
+:PrivativePrefix rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf lexinfo:Prefix, :PrivativeAffix ; 
+			  rdfs:comment "The class of privative prefixes"@en.
+				 
+				 
+				 
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#ReconstructedTerm
+
+:ReconstructedTerm rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf lemon:LexicalEntry .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#SemanticShift
+
+:SemanticShift rdf:type owl:Class ;
+                        rdfs:subClassOf :LemonDiaElement,
+						[ rdf:type rdfs:Class, owl:Class ;
+                                               owl:unionOf ( [ rdf:type owl:Restriction ;
+                                        owl:onProperty :shiftSource ;
+                                        owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                      ]
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :shiftTarget ;
+                                        owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                      ]
+                                    ) 
+						];
+               rdfs:comment "A  SemanticShift represents the shift in meaning which the pairing of a lexical entry with a meaning undergoes over time."@en .
+
+
+
+###  http://www.languagelibrary.eu/lemonDia/lemonDia.owl#ShiftType
+
+:ShiftType rdf:type owl:Class ;
+           
+           rdfs:subClassOf :LemonDiaElement .
+
+
+
+
+#################################################################
+#
+#    General axioms
+#
+#################################################################
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( 
+                <http://lemon-model.net/lemon#Component>
+                <http://lemon-model.net/lemon#Form>
+                <http://lemon-model.net/lemon#Frame>
+                <http://lemon-model.net/lemon#LexicalEntry>
+                <http://lemon-model.net/lemon#LexicalSense>
+                <http://lemon-model.net/lemon#Lexicon>
+                <http://lemon-model.net/lemon#Node>
+                <http://lemon-model.net/lemon#PropertyValue>
+                <http://lemon-model.net/lemon#SenseDefinition>
+              )
+] .
+
+
+
+
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+

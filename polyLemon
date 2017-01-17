@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+  <owl:Ontology rdf:about="http://wwww.languagelibrary.eu/polyLemon/polyLemon#">
+    <rdfs:comment>polyLemon: An extension of the lemon model for representing the polysemic lexical structures. </rdfs:comment>
+    <owl:imports rdf:resource="http://lemon-model.net/lemon"/>
+  </owl:Ontology>
+
+  <rdf:Description rdf:about="http://wwww.languagelibrary.eu/polyLemon/polyLemon#senseChild">
+    <rdfs:domain rdf:resource="http://lemon-model.net/lemon#LexicalSense"/>
+    <rdfs:range rdf:resource="http://lemon-model.net/lemon#LexicalSense"/>
+    <rdfs:subPropertyOf rdf:resource="http://lemon-model.net/lemon#property"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://wwww.languagelibrary.eu/polyLemon/polyLemon#senseSibling">
+    <rdfs:domain rdf:resource="http://lemon-model.net/lemon#LexicalSense"/>
+    <rdfs:range rdf:resource="http://lemon-model.net/lemon#LexicalSense"/>
+    <rdfs:subPropertyOf rdf:resource="http://lemon-model.net/lemon#property"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://wwww.languagelibrary.eu/polyLemon/polyLemon#senseDescendant">
+    <rdfs:domain rdf:resource="http://lemon-model.net/lemon#LexicalSense"/>
+    <rdfs:range rdf:resource="http://lemon-model.net/lemon#LexicalSense"/>
+    <rdfs:subPropertyOf rdf:resource="http://lemon-model.net/lemon#property"/>
+  </rdf:Description>
+
+  <rdf:Property rdf:about="http://wwww.languagelibrary.eu/polyLemon/polyLemon#senseLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://lemon-model.net/lemon#LexicalSense"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://wwww.languagelibrary.eu/polyLemon/polyLemon#senseID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://lemon-model.net/lemon#LexicalSense"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Property>
+
+</rdf:RDF>

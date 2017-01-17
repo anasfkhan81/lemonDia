@@ -1,0 +1,36 @@
+@prefix : <http://wwww.languagelibrary.eu/polyLemon/polyLemon#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix lemon: <http://lemon-model.net/lemon#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+<http://wwww.languagelibrary.eu/polyLemon/polyLemon#> a owl:Ontology ; 
+		rdfs:comment "polyLemon: An extension of the lemon model for representing the polysemic lexical structures. "; 
+		owl:imports <http://lemon-model.net/lemon> .
+		
+	
+:senseChild rdfs:domain lemon:LexicalSense ;
+    rdfs:range lemon:LexicalSense ;
+    rdfs:subPropertyOf lemon:property .
+
+:senseSibling rdfs:domain lemon:LexicalSense ;
+    rdfs:range lemon:LexicalSense ;
+    rdfs:subPropertyOf lemon:property .	
+	
+:senseDescendant rdfs:domain lemon:LexicalSense ;
+    rdfs:range lemon:LexicalSense ;
+    rdfs:subPropertyOf lemon:property .	
+	
+:senseLevel a rdf:Property,
+    owl:DatatypeProperty ;
+    rdfs:domain lemon:LexicalSense ;
+    rdfs:range xsd:integer .
+	
+:senseID a rdf:Property,
+    owl:DatatypeProperty ;
+    rdfs:domain lemon:LexicalSense ;
+    rdfs:range xsd:string .
+		

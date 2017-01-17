@@ -1,0 +1,450 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#"
+     xml:base="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:ns0="http://www.lemon-model.net/lemon#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ns2="http://www.w3.org/2006/time#"
+     xmlns:ns1="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#"
+     xmlns:ns3="http://www.w3.org/2006/time-entry#"
+     xmlns:Ontology1211440295085="http://www.semanticweb.org/ontologies/2008/4/Ontology1211440295085.owl#">
+    <owl:Ontology rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline">
+        <owl:imports rdf:resource="http://www.intelligence.tuc.gr/~batsakis/ontologies/4d-fluentsDEN.owl"/>
+        <ns0:language>ang</ns0:language>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#corpusFreq -->
+
+    <owl:DatatypeProperty rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#corpusFreq">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#textualDistribution -->
+
+    <owl:DatatypeProperty rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#textualDistribution"/>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#totalFreq -->
+
+    <owl:DatatypeProperty rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#totalFreq">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#corpusFreq -->
+
+    <owl:ObjectProperty rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#corpusFreq">
+        <rdfs:subPropertyOf rdf:resource="http://www.lemon-model.net/lemon#property"/>
+        <rdfs:domain rdf:resource="http://www.lemon-model.net/lemon#LexicalEntry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#hasCollocation -->
+
+    <owl:ObjectProperty rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#hasCollocation">
+        <rdfs:subPropertyOf rdf:resource="http://www.lemon-model.net/lemon#property"/>
+        <rdfs:domain rdf:resource="http://www.lemon-model.net/lemon#LexicalEntry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#hasSemantics -->
+
+    <owl:ObjectProperty rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#hasSemantics">
+        <rdfs:subPropertyOf rdf:resource="http://www.lemon-model.net/lemon#property"/>
+        <rdfs:domain rdf:resource="http://www.languagelibrary.eu/lemonDia/lemonDia.owl#LexicalpSense"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#lexicalType -->
+
+    <owl:ObjectProperty rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#lexicalType">
+        <rdfs:subPropertyOf rdf:resource="http://www.lemon-model.net/lemon#property"/>
+        <rdfs:domain rdf:resource="http://www.lemon-model.net/lemon#LexicalEntry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#stem -->
+
+    <owl:ObjectProperty rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#stem">
+        <rdfs:subPropertyOf rdf:resource="http://www.lemon-model.net/lemon#property"/>
+        <rdfs:domain rdf:resource="http://www.lemon-model.net/lemon#LexicalEntry"/>
+        <rdfs:range rdf:resource="http://www.lemon-model.net/lemon#LexicalEntry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#textualDistribution -->
+
+    <owl:ObjectProperty rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#textualDistribution">
+        <rdfs:subPropertyOf rdf:resource="http://www.lemon-model.net/lemon#property"/>
+        <rdfs:domain rdf:resource="http://www.lemon-model.net/lemon#LexicalEntry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#theme -->
+
+    <owl:ObjectProperty rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#theme">
+        <rdfs:subPropertyOf rdf:resource="http://www.lemon-model.net/lemon#property"/>
+        <rdfs:domain rdf:resource="http://www.languagelibrary.eu/lemonDia/lemonDia.owl#LemonpSense"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#totalFreq -->
+
+    <owl:ObjectProperty rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#totalFreq">
+        <rdfs:subPropertyOf rdf:resource="http://www.lemon-model.net/lemon#property"/>
+        <rdfs:domain rdf:resource="http://www.lemon-model.net/lemon#LexicalEntry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.lemon-model.net/lemon#property -->
+
+    <owl:ObjectProperty rdf:about="http://www.lemon-model.net/lemon#property"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/4/Ontology1211440295085.owl#startValue -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2008/4/Ontology1211440295085.owl#startValue"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#narrower -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#narrower"/>
+    
+
+
+    <!-- http://www.w3.org/2006/time#hasBeginning -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#hasBeginning"/>
+    
+
+
+    <!-- http://www.w3.org/2006/time#hasEnd -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#hasEnd"/>
+    
+
+
+    <!-- http://www.w3.org/2006/time#intervalContains -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalContains"/>
+    
+
+
+    <!-- http://www.w3.org/2006/time#intervalFinishes -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalFinishes"/>
+    
+
+
+    <!-- http://www.w3.org/2006/time#intervalStarts -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalStarts"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#corpusFreq -->
+
+    <owl:DatatypeProperty rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#corpusFreq"/>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#literalness -->
+
+    <owl:DatatypeProperty rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#literalness">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#textualDistribution -->
+
+    <owl:DatatypeProperty rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#textualDistribution"/>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#totalFreq -->
+
+    <owl:DatatypeProperty rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#totalFreq"/>
+    
+
+
+    <!-- http://www.w3.org/2006/time-entry#year -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time-entry#year"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://wordnet-rdf.princeton.edu/ontology#Synset -->
+
+    <owl:Class rdf:about="http://wordnet-rdf.princeton.edu/ontology#Synset"/>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#Gloss -->
+
+    <owl:Class rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#Gloss"/>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#Poetry -->
+
+    <owl:Class rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#Poetry"/>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#Semantics -->
+
+    <owl:Class rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#Semantics"/>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/lemonDia.owl#LemonpSense -->
+
+    <owl:Class rdf:about="http://www.languagelibrary.eu/lemonDia/lemonDia.owl#LemonpSense"/>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/lemonDia.owl#LexicalpSense -->
+
+    <owl:Class rdf:about="http://www.languagelibrary.eu/lemonDia/lemonDia.owl#LexicalpSense"/>
+    
+
+
+    <!-- http://www.lemon-model.net/lemon#LexicalEntry -->
+
+    <owl:Class rdf:about="http://www.lemon-model.net/lemon#LexicalEntry"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#concept -->
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#concept"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#Gloss -->
+
+    <owl:NamedIndividual rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#Gloss"/>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE -->
+
+    <owl:NamedIndividual rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE">
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
+        <ns2:intervalContains rdf:resource="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE2"/>
+        <ns2:intervalContains rdf:resource="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE3"/>
+        <ns2:intervalFinishes rdf:resource="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE3"/>
+        <ns2:intervalStarts rdf:resource="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE1">
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
+        <ns2:hasEnd rdf:resource="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#year_950"/>
+        <ns2:intervalMeets rdf:resource="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE2"/>
+		<ns2:before rdf:resource="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE12 -->
+
+    <owl:NamedIndividual rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE12">
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
+        <ns2:intervalFinishes rdf:resource="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE2"/>
+        <ns2:intervalStarts rdf:resource="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE123 -->
+
+    <owl:NamedIndividual rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE123">
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
+        <ns2:intervalContains rdf:resource="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE2"/>
+        <ns2:intervalFinishes rdf:resource="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE3"/>
+        <ns2:intervalStarts rdf:resource="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE2">
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
+        <ns2:hasBeginning rdf:resource="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#year_950"/>
+        <ns2:hasEnd rdf:resource="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#year_1050"/>
+		<ns2:intervalMeets rdf:resource="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE3"/>
+		<ns2:before rdf:resource="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OE3">
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
+        <ns2:hasBeginning rdf:resource="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#year_1050"/>
+        <ns2:hasEnd rdf:resource="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#year_1150"/>
+    </owl:NamedIndividual>
+    
+
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OEASHAMED_ADJ -->
+
+    <owl:NamedIndividual rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OEASHAMED_ADJ">
+        <rdf:type rdf:resource="http://wordnet-rdf.princeton.edu/ontology#Synset"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OESHAMEDLY_ADV -->
+
+    <owl:NamedIndividual rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OESHAMEDLY_ADV">
+        <rdf:type rdf:resource="http://wordnet-rdf.princeton.edu/ontology#Synset"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OESHAME_N -->
+
+    <owl:NamedIndividual rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OESHAME_N">
+        <rdf:type rdf:resource="http://wordnet-rdf.princeton.edu/ontology#Synset"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OESHAME_VB -->
+
+    <owl:NamedIndividual rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#OESHAME_VB">
+        <rdf:type rdf:resource="http://wordnet-rdf.princeton.edu/ontology#Synset"/>
+    </owl:NamedIndividual>
+    
+
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#year_1050 -->
+
+    <owl:NamedIndividual rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#year_1050">
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+        <ns3:year rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1050</ns3:year>
+        <!--<Ontology1211440295085:startValue rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1050-01-01</Ontology1211440295085:startValue>-->
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#year_1150 -->
+
+    <owl:NamedIndividual rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#year_1150">
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+        <ns3:year rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1150</ns3:year>
+        <!--<Ontology1211440295085:startValue rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1150-01-01</Ontology1211440295085:startValue>-->
+    </owl:NamedIndividual>
+    
+
+
+
+
+    <!-- http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#year_950 -->
+
+    <owl:NamedIndividual rdf:about="http://www.languagelibrary.eu/lemonDia/anglosaxtimeline#year_950">
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+        <ns3:year rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">0950</ns3:year>
+        <!--<Ontology1211440295085:startValue rdf:datatype="http://www.w3.org/2001/XMLSchema#date">0950-01-01</Ontology1211440295085:startValue>-->
+    </owl:NamedIndividual>
+    
+
+
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+
